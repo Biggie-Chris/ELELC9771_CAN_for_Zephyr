@@ -1,0 +1,20 @@
+common:
+  depends_on: netif
+  min_ram: 32
+  min_flash: 260
+  tags:
+    - net
+    - socket
+    - tls
+  filter: CONFIG_FULL_LIBC_SUPPORTED
+  integration_platforms:
+    - qemu_x86
+  platform_exclude: vmu_rt1170 # See #61129
+tests:
+  net.socket.tls:
+    extra_configs:
+      - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+  net.socket.tls.preempt:
+    extra_configs:
+      - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_exclude: mps2_an385

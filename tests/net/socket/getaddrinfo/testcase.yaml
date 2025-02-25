@@ -1,0 +1,11 @@
+common:
+  depends_on: netif
+  filter: CONFIG_FULL_LIBC_SUPPORTED
+tests:
+  net.socket.get_addr_info:
+    min_ram: 21
+    tags:
+      - net
+      - socket
+      - getaddrinfo
+      - userspace

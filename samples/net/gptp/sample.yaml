@@ -1,0 +1,30 @@
+common:
+  harness: net
+  tags:
+    - net
+    - gptp
+sample:
+  description: Test gPTP functionality
+  name: gPTP sample app
+tests:
+  sample.net.gptp:
+    platform_allow:
+      - frdm_k64f
+      - sam_e70_xplained
+      - native_posix
+      - native_posix_64
+      - native_sim
+      - native_sim_64
+      - nucleo_f767zi
+      - nucleo_h743zi
+      - nucleo_h745zi_q_m7
+    depends_on: netif
+    integration_platforms:
+      - frdm_k64f
+  sample.net.gpt.nxp_enet_experimental:
+    extra_args: EXTRA_DTC_OVERLAY_FILE="nxp,enet-experimental.overlay"
+    platform_allow:
+      - mimxrt1050_evk
+      - mimxrt1060_evk
+      - mimxrt1064_evk
+      - mimxrt1024_evk
